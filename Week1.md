@@ -1,7 +1,8 @@
-## 460. LFU Cache (Hard)
+# 460. LFU Cache (Hard)
 
 - Object-Oriented Programming
 - data structure
+> OrderedDict
 
 
 
@@ -24,8 +25,49 @@ However, the problem is that in some cases (when every item wasn't used after be
 
 [Link to LFU Cache OrderedDict Example](#lfu-cache-ordereddict)
 
+# 37. Sudoku Solver (Hard)
+
+- Backtraking
+
+One way is to use `recursive definition`
+
+[Link to Sudoku Solver recursive definition Example](#sudoku-solver-recursive-definition)
+
+In a recursive function definition, there is an implicit dequeue operation happening on the call stack.\
+Here's how we can explicitly mimic this behavior using a queue data structure:
+```python
+from collections import deque
+
+def factorial(n, queue=None):
+    if queue is None:
+        queue = deque()
+
+    if n == 0:  # Base case
+        return 1
+    else:  # Recursive case
+        queue.append((n, n * factorial(n - 1, queue)))
+        while queue:
+            n, result = queue.popleft()
+            print(f"Computing factorial({n}) = {result}")
+        return result
+
+print(factorial(5))
+```
+```
+# output
+Computing factorial(1) = 1
+Computing factorial(2) = 2
+Computing factorial(3) = 6
+Computing factorial(4) = 24
+Computing factorial(5) = 120
+120
+```
+Recursive function definition is natural for DFS but not natural for BFS. So, we have to use deque for BFS.
+[Link to DFS Example](#dfs)
+[Link to BFS Example](#bfs)
 
 
+# Appendix Code
 ## LFU Cache False Example
 ```python
 class counter:
@@ -334,5 +376,125 @@ class LFUCache:
         self.minfreq = min(self.values[key], self.minfreq)
 ```
 
+## Sudoku Solver recursive definition
+```python
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        n = 9
+        
+        
+        def isValid(row, col, ch):
+            row, col = int(row), int(col)
+            
+            for i in range(9):
+                
+                if board[i][col] == ch:
+                    return False
+                if board[row][i] == ch:
+                    return False
+                
+                if board[3*(row//3) + i//3][3*(col//3) + i%3] == ch:
+                    return False
+            
+            return True
+            
+        def solve(row, col):
+            if row == n:
+                return True
+            if col == n:
+                return solve(row+1, 0)
+            
+            if board[row][col] == ".":
+                for i in range(1, 10):
+                    if isValid(row, col, str(i)):
+                        board[row][col] = str(i)
+                        
+                        if solve(row, col + 1):
+                            return True
+                        else:
+                            board[row][col] = "."
+                return False
+            else:
+                return solve(row, col + 1)
+            
+            
+        
+        solve(0, 0)
+		
+		#do upvote if it helps.
+```
 
+## DFS
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def dfs_traverse(root):
+    if root:
+        # Pre-order traversal: Root, Left, Right
+        print(root.val, end=" ")
+        dfs_traverse(root.left)
+        dfs_traverse(root.right)
+
+# Create a sample binary tree
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+print("DFS (Pre-order) Traversal:")
+dfs_traverse(root)
+
+#DFS (Pre-order) Traversal:
+#1 2 4 5 3 
+```
+
+## BFS
+```python
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def bfs_traverse(root):
+    if not root:
+        return
+
+    queue = deque([root])
+    while queue:
+        level_size = len(queue)
+        for _ in range(level_size):
+            node = queue.popleft()
+            print(node.val, end=" ")
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        print()  # Print a newline after each level
+
+# Create a sample binary tree
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+print("BFS (Level-order) Traversal:")
+bfs_traverse(root)
+
+#BFS (Level-order) Traversal:
+#1 
+#2 3 
+#4 5 
+```
+
+
+```
     
