@@ -52,8 +52,7 @@ def factorial(n, queue=None):
         return result
 
 print(factorial(5))
-```
-```
+
 # output
 Computing factorial(1) = 1
 Computing factorial(2) = 2
@@ -63,7 +62,9 @@ Computing factorial(5) = 120
 120
 ```
 Recursive function definition is natural for DFS but not natural for BFS. So, we have to use deque for BFS.
+
 [Link to DFS Example](#dfs)
+
 [Link to BFS Example](#bfs)
 
 
