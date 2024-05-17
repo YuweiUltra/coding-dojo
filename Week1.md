@@ -22,7 +22,7 @@ However, the problem is that in some cases (when every item wasn't used after be
 
 `OrderedDict` is implemented using a combination of a hash table and a doubly linked list. 
 
-[Link to LFU Cache doublylinkedlist Example](#lfu-cache-ordereddict)
+[Link to LFU Cache OrderedDict Example](#lfu-cache-ordereddict)
 
 
 
