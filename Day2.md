@@ -30,7 +30,45 @@ Define how to balance two heaps to keep their lengths close
 Since Self-balancing Binary Search Trees maintain height to a logarithmic bound. Thus inserting a new element has reasonably good time performance. \
 Let's see the C++ version answer using STL std::multiset\
 
+# 42. Trapping Rain Water
+- DP
+- Monotonic Queue
+- 
 
+
+## Trapping Rain Water Monotonic Queue
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        left_max=0
+        right_queue=deque([2])
+        for i in range(3,len(height)):
+            if height[i]<height[right_queue[-1]]:
+                right_queue.append(i)
+
+            elif height[i]>=height[right_queue[-1]]:
+                while right_queue and height[i]>=height[right_queue[-1]]:
+                    right_queue.pop()
+                right_queue.append(i)
+
+    
+        sum=0
+
+        for i in range(1,len(height)-1):
+            if height[i-1]>left_max:
+                left_max=height[i-1]
+            
+            if i+1<=right_queue[0]:
+                right_max=height[right_queue[0]]
+            else:
+                right_queue.popleft()
+                right_max=height[right_queue[0]]
+            
+            x=min(left_max,right_max)
+            sum+=(max(x-height[i],0))
+
+        return sum
+```
 
 ## Monotonic Queue
 ```python
