@@ -30,11 +30,9 @@ Define how to balance two heaps to keep their lengths close
 Since Self-balancing Binary Search Trees maintain height to a logarithmic bound. Thus inserting a new element has reasonably good time performance. \
 Let's see the C++ version answer using STL std::multiset\
 
-# 42. Trapping Rain Water
+# 42. Trapping Rain Water (Hard)
 - DP
 - Monotonic Queue
-- 
-
 
 ## Trapping Rain Water Monotonic Queue
 ```python
