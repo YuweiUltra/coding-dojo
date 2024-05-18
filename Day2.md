@@ -9,7 +9,7 @@ Review a little for the sort algorithm:
   
   3. Counting Sort (if the range of values is small): Count the occurrences of each value, then iterate through the counts to find the k-th largest element. Time complexity is O(n + r), where r is the range of values in the array.
   
-The answer for this question is very tricky. We use a monotonic queue.
+The answer for this question is very tricky. We use a `monotonic queue`.
 
 - If the number increases, delete smaller ones from the left of the queue and add the number to the queue.
 - If the number decreases, add it to the queue.
@@ -19,7 +19,10 @@ In this case, the monotonic queue contains indices of numbers that are monotonic
 
 # 295. Find Median from Data Stream (Hard)
 
+1. `Insertion Sort`:
+Binary search for position to insert the new num O(logn) and conduct the instert operation O(n)
 
+2. `Heaps (Priority Queues)` 
 
 
 
