@@ -69,7 +69,7 @@ Recursive function definition is natural for DFS but not natural for BFS. So, we
 [Link to BFS Example](#bfs)
 
 
-200. Number of Islands (Medium)
+# 200. Number of Islands (Medium)
 
 This is a good chance to apply DFS using recursive function definition
 
