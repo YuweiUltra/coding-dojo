@@ -1,4 +1,4 @@
-# 239. Sliding Window Maximum (hard)
+# 239. Sliding Window Maximum (Hard)
 
 Review a little for the sort algorithm:
 - find the maximum element O(n)
@@ -17,7 +17,7 @@ The answer for this question is very tricky. We use a monotonic queue.
 In this case, the monotonic queue contains indices of numbers that are monotonically decreasing.
 
 
-# 295. Find Median from Data Stream (hard)
+# 295. Find Median from Data Stream (Hard)
 
 
 
