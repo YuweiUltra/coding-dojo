@@ -17,7 +17,9 @@ The answer for this question is very tricky. We use a monotonic queue.
 In this case, the monotonic queue contains indices of numbers that are monotonically decreasing.
 
 
-# 295. Find Median from Data Stream
+# 295. Find Median from Data Stream (hard)
+
+
 
 
 
