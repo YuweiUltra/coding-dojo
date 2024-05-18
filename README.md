@@ -1,2 +1,2 @@
 # coding-dojo
-One Hour LeetCode a Day Keeps the Doctor Away
+One LeetCode Test a Day Keeps the Doctor Away
