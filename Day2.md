@@ -22,9 +22,65 @@ In this case, the monotonic queue contains indices of numbers that are monotonic
 1. `Insertion Sort`:
 Binary search for position to insert the new num O(logn) and conduct the instert operation O(n)
 
-2. `Heaps (Priority Queues)` 
+2. `Heaps (Priority Queues)`:\
+Use two heaps: lo max-heap and hi min-heap.\
+Define how to balance two heaps to keep their lengths close
 
+3. `Self-balancing Binary Search Trees` and `Multiset`:\
+Let's first see the C++ version answer using STL std::multiset\
+- AVL tree
+- Question: Compare self-balancing BST with Heap
 
+```c++
+class MedianFinder {
+    multiset<int> data;
+    multiset<int>::iterator lo_median, hi_median;
+
+public:
+    MedianFinder()
+        : lo_median(data.end())
+        , hi_median(data.end())
+    {
+    }
+
+    void addNum(int num)
+    {
+        const size_t n = data.size();   // store previous size
+
+        data.insert(num);               // insert into multiset
+
+        if (!n) {
+            // no elements before, one element now
+            lo_median = hi_median = data.begin();
+        }
+        else if (n & 1) {
+            // odd size before (i.e. lo == hi), even size now (i.e. hi = lo + 1)
+
+            if (num < *lo_median)       // num < lo
+                lo_median--;
+            else                        // num >= hi
+                hi_median++;            // insertion at end of equal range
+        }
+        else {
+            // even size before (i.e. hi = lo + 1), odd size now (i.e. lo == hi)
+
+            if (num > *lo_median && num < *hi_median) {
+                lo_median++;                    // num in between lo and hi
+                hi_median--;
+            }
+            else if (num >= *hi_median)         // num inserted after hi
+                lo_median++;
+            else                                // num <= lo < hi
+                lo_median = --hi_median;        // insertion at end of equal range spoils lo
+        }
+    }
+
+    double findMedian()
+    {
+        return ((double) *lo_median + *hi_median) * 0.5;
+    }
+};
+```
 
 
 ## monotonic queue
@@ -76,5 +132,46 @@ class Solution:
             res.append(queue[0])
 
         return [nums[i] for i in res]
+
+```
+
+## Two Heap
+```python
+import heapq
+class MedianFinder:
+
+    def __init__(self):
+        self.lo=[]
+        self.hi=[]
+
+
+    def addNum(self, num: int) -> None:
+        if (not self.lo) and (not self.hi):
+            self.lo.append(-num)
+        else:
+            m=self.findMedian()
+            if num>=m:
+                heapq.heappush(self.hi,num)
+            else:
+                heapq.heappush(self.lo,-num)
+
+            self.balance()
+
+    def balance(self):
+        if len(self.hi)-len(self.lo)==2:
+            num=heapq.heappop(self.hi)
+            heapq.heappush(self.lo,-num)
+        elif len(self.lo)-len(self.hi)==2:
+            num=heapq.heappop(self.lo)
+            heapq.heappush(self.hi,-num)
+
+
+    def findMedian(self) -> float:
+        if len(self.hi)>len(self.lo):
+            return self.hi[0]
+        elif len(self.hi)<len(self.lo):
+            return -self.lo[0]
+        else:
+            return (-self.lo[0]+self.hi[0])/2
 
 ```
