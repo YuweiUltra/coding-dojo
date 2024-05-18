@@ -70,6 +70,31 @@ class Solution:
         return sum
 ```
 
+## two side
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        left_max=0
+        right_max=0
+        left_maxs={}
+        right_maxs={}
+        sums=0
+        for i in range(1,len(height)-1):
+            if height[i-1]>left_max:
+                left_max=height[i-1]
+            left_maxs[i]=left_max
+
+        for i in range(len(height)-2,0,-1):
+            if height[i+1]>right_max:
+                right_max=height[i+1]
+            right_maxs[i]=right_max
+
+        for i in range(1,len(height)-1):
+            x=min(left_maxs[i],right_maxs[i])-height[i]
+            sums+=max(x,0)
+
+        return sums
+```
 ## Monotonic Queue
 ```python
 
