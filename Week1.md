@@ -29,12 +29,13 @@ However, the problem is that in some cases (when every item wasn't used after be
 
 - Backtraking
 
+
 One way is to use `recursive definition`
 
 [Link to Sudoku Solver recursive definition Example](#sudoku-solver-recursive-definition)
 
 In a recursive function definition, there is an implicit dequeue operation happening on the call stack.\
-Here's how we can explicitly mimic this behavior using a queue data structure:
+Here's how we can explicitly mimic this behavior using a queue data structure:5t hu shi z de hua zhi da
 ```python
 from collections import deque
 
@@ -67,6 +68,19 @@ Recursive function definition is natural for DFS but not natural for BFS. So, we
 
 [Link to BFS Example](#bfs)
 
+
+200. Number of Islands (Medium)
+
+This is a good chance to apply DFS using recursive function definition
+
+Using deque framework for BFS
+```python
+queue=deque([(i,j)]
+while queue:
+    x,y=queue.popleft()
+	...
+    queue.append()
+```
 
 # Appendix Code
 ## LFU Cache False Example
@@ -496,6 +510,29 @@ bfs_traverse(root)
 #4 5 
 ```
 
-
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        if not grid:
+            return 0
+        
+        def dfs(i, j):
+            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] != '1':
+                return
+            grid[i][j] = '0'  # mark as visited
+            dfs(i+1, j)
+            dfs(i-1, j)
+            dfs(i, j+1)
+            dfs(i, j-1)
+        
+        num_islands = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == '1':
+                    num_islands += 1
+                    dfs(i, j)
+        
+        return num_islands
 ```
-    
+
+
