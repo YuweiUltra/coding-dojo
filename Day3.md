@@ -6,9 +6,10 @@ Bottom-up strategy with BFS or DFS implements
 # 3068. Find the Maximum Sum of Node Values (Hard)
 First, we need to know the properties of the XOR operation
 
-# 780. Reaching Points
-The key is to looking backwards! Since one step back from the final completely matched situation, 
-we can ensure that one item of ts, ty is still matched.
+# 780. Reaching Points (Hard)
+The key is to look backwards! \
+Since one step back from the final completely matched situation, 
+we can ensure that one item of ts, ty is still matched.\
 [Reaching Points backwards](#reaching-points)
 
 
