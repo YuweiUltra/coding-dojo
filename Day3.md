@@ -1,8 +1,8 @@
 # 979. Distribute Coins in Binary Tree (Median)
 Bottom-up strategy with BFS or DFS implements
 
-[BFS](#979.BFS)\
-[DFS](#979.DFS)
+[BFS](#979-bfs)\
+[DFS](#979-dfs)
 # 3068. Find the Maximum Sum of Node Values (Hard)
 
 
