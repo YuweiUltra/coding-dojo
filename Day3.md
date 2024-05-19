@@ -12,6 +12,10 @@ Since one step back from the final completely matched situation,
 we can ensure that one item of ts, ty is still matched.\
 [Reaching Points backwards](#reaching-points)
 
+# 51. N-Queens (Hard)
+Simliar solution with 37. Sudoku Solver using backtrack.
+[N Queens](#n-queens)
+ 
 
 ## Distribute Coins BFS
 ```python
@@ -120,4 +124,45 @@ class Solution(object):
                     return (ty - sy) % tx == 0
 
         return tx == sx and ty == sy
+```
+## N Queens
+```pyrhon
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        # fill up down
+        pre_fill_pos_j=[]
+
+        def isValid(j,pre_fill_pos_j):
+            if j in pre_fill_pos_j:
+                return False
+            for row in range(len(pre_fill_pos_j)):
+                posj=pre_fill_pos_j[row]
+                row_diff=len(pre_fill_pos_j)-row
+                if j==posj+row_diff or j==posj-row_diff:
+                    return False
+            
+            return True
+
+        passed_pre_fill_pos_j=[]
+
+        def fill_row(pre_fill_pos_j):
+            if len(pre_fill_pos_j)==n:
+                passed_pre_fill_pos_j.append(pre_fill_pos_j)
+            else:
+                for j in range(n):
+                    # check if valid
+                    if isValid(j,pre_fill_pos_j):
+                        fill_row(pre_fill_pos_j+[j])
+
+        fill_row([])
+        res=[]
+        for i in passed_pre_fill_pos_j:
+            ss=[]
+            for j in i:
+                s=["."]*n 
+                s[j]="Q"
+                s="".join(s)
+                ss.append(s)
+            res.append(ss)
+        return res
 ```
