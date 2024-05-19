@@ -13,7 +13,7 @@ we can ensure that one item of ts, ty is still matched.\
 [Reaching Points backwards](#reaching-points)
 
 # 51. N-Queens (Hard)
-Simliar solution with 37. Sudoku Solver using backtrack.
+Simliar solution with 37. Sudoku Solver using backtrack.\
 [N Queens](#n-queens)
  
 
