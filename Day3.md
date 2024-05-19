@@ -1,12 +1,12 @@
 # 979. Distribute Coins in Binary Tree (Median)
 Bottom-up strategy with BFS or DFS implements
 
-[BFS](#979-bfs)\
-[DFS](#979-dfs)
+[Distribute Coins BFS](#distribute-coins-bfs)\
+[Distribute Coins DFS](#distribute-coins-dfs)
 # 3068. Find the Maximum Sum of Node Values (Hard)
 
 
-## 979.BFS
+## Distribute Coins BFS
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -59,7 +59,7 @@ class Solution:
 
         return steps
 ```
-## 979.DFS
+## Distribute Coins DFS
 ```python
 class Solution:
     def distributeCoins(self, root: Optional[TreeNode]) -> int:
