@@ -73,6 +73,8 @@ Recursive function definition is natural for DFS but not natural for BFS. So, we
 
 This is a good chance to apply DFS using recursive function definition
 
+[numIslands](#numIslands)
+
 Using deque framework for BFS
 ```python
 queue=deque([(i,j)]
@@ -510,6 +512,7 @@ bfs_traverse(root)
 #4 5 
 ```
 
+## NumIslands
 ```python
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
