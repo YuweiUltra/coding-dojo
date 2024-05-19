@@ -4,7 +4,23 @@ Bottom-up strategy with BFS or DFS implements
 [Distribute Coins BFS](#distribute-coins-bfs)\
 [Distribute Coins DFS](#distribute-coins-dfs)
 # 3068. Find the Maximum Sum of Node Values (Hard)
+First, we need to know the properties of the XOR operation
 
+# 780. Reaching Points
+The key is to looking backwards! Since one step back from the final completely matched situation, 
+we can ensure that one item of ts, ty is still matched.
+
+```python
+class Solution:
+    def reachingPoints(self, sx: int, sy: int, tx: int, ty: int) -> bool:
+        while tx >= sx + ty or ty >= sy + tx:
+            if tx > ty:
+                tx = sx + (tx - sx) % ty
+            else:
+                ty = sy + (ty - sy) % tx
+
+        return ty == sy and tx == sx
+```
 
 ## Distribute Coins BFS
 ```python
