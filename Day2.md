@@ -14,8 +14,8 @@ The answer for this question is very tricky. We use a `monotonic queue`.
 - If the number increases, delete smaller ones from the left of the queue and add the number to the queue.
 - If the number decreases, add it to the queue.
 
-In this case, the monotonic queue contains indices of numbers that are monotonically decreasing.
-
+In this case, the monotonic queue contains indices of numbers that are monotonically decreasing.\
+[Monotonic Queue](#monotonic-queue)
 
 # 295. Find Median from Data Stream (Hard)
 
@@ -24,49 +24,19 @@ Binary search for position to insert the new num O(logn) and conduct the instert
 
 2. `Heaps (Priority Queues)`:\
 Use two heaps: lo max-heap and hi min-heap.\
-Define how to balance two heaps to keep their lengths close
+Define how to balance two heaps to keep their lengths close\
+[Two Heap](#two-heap)
 
-3. `Self-balancing Binary Search Trees` and `Multiset`:\
+4. `Self-balancing Binary Search Trees` and `Multiset`:\
 Since Self-balancing Binary Search Trees maintain height to a logarithmic bound. Thus inserting a new element has reasonably good time performance. \
 Let's see the C++ version answer using STL std::multiset\
+[Multiset](#multiset)
 
 # 42. Trapping Rain Water (Hard)
 - DP
-- Monotonic Queue
+- [Monotonic Queue](#trapping-rain-water-monotonic-queue)
 
-## Trapping Rain Water Monotonic Queue
-```python
-class Solution:
-    def trap(self, height: List[int]) -> int:
-        left_max=0
-        right_queue=deque([2])
-        for i in range(3,len(height)):
-            if height[i]<height[right_queue[-1]]:
-                right_queue.append(i)
 
-            elif height[i]>=height[right_queue[-1]]:
-                while right_queue and height[i]>=height[right_queue[-1]]:
-                    right_queue.pop()
-                right_queue.append(i)
-
-    
-        sum=0
-
-        for i in range(1,len(height)-1):
-            if height[i-1]>left_max:
-                left_max=height[i-1]
-            
-            if i+1<=right_queue[0]:
-                right_max=height[right_queue[0]]
-            else:
-                right_queue.popleft()
-                right_max=height[right_queue[0]]
-            
-            x=min(left_max,right_max)
-            sum+=(max(x-height[i],0))
-
-        return sum
-```
 
 ## two side
 ```python
@@ -235,4 +205,37 @@ public:
         return ((double) *lo_median + *hi_median) * 0.5;
     }
 };
+```
+## Trapping Rain Water Monotonic Queue
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        left_max=0
+        right_queue=deque([2])
+        for i in range(3,len(height)):
+            if height[i]<height[right_queue[-1]]:
+                right_queue.append(i)
+
+            elif height[i]>=height[right_queue[-1]]:
+                while right_queue and height[i]>=height[right_queue[-1]]:
+                    right_queue.pop()
+                right_queue.append(i)
+
+    
+        sum=0
+
+        for i in range(1,len(height)-1):
+            if height[i-1]>left_max:
+                left_max=height[i-1]
+            
+            if i+1<=right_queue[0]:
+                right_max=height[right_queue[0]]
+            else:
+                right_queue.popleft()
+                right_max=height[right_queue[0]]
+            
+            x=min(left_max,right_max)
+            sum+=(max(x-height[i],0))
+
+        return sum
 ```
