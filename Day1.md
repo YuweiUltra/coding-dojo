@@ -35,7 +35,7 @@ One way is to use `recursive definition`
 [Link to Sudoku Solver recursive definition Example](#sudoku-solver-recursive-definition)
 
 In a recursive function definition, there is an implicit dequeue operation happening on the call stack.\
-Here's how we can explicitly mimic this behavior using a queue data structure:5t hu shi z de hua zhi da
+Here's how we can explicitly mimic this behavior using a queue data structure:
 ```python
 from collections import deque
 
