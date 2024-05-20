@@ -16,7 +16,7 @@ we can ensure that one item of ts, ty is still matched.\
 Simliar solution with 37. Sudoku Solver using backtrack.\
 [N Queens](#n-queens)
  
-
+# Appendix Code
 ## Distribute Coins BFS
 ```python
 # Definition for a binary tree node.
