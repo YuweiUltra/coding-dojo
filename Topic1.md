@@ -48,7 +48,7 @@ class Solution:
         return min(dp(0),dp(1))
 ```
 
-## 740. Delete and Earn
+## 740. Delete and Earn (Medium)
 Define state as the maximum num in subsets and use count sort
 ```python
 class Solution:
