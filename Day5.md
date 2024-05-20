@@ -14,6 +14,9 @@ If the position changes, than return False.
 
 [Bounded In Circle](#bounded-in-circle)
 
+## 1328. Break a Palindrome (Medium)
+[Greedy](#greedy)
+
 
 ## Binary Search
 ```python
@@ -93,4 +96,27 @@ class Solution:
             return True
         else:
             return False
+```
+
+## Greedy
+```python
+class Solution:
+    def breakPalindrome(self, palindrome: str) -> str:
+        if len(palindrome)==1:
+            return ""
+        
+        n=len(palindrome)
+        strl=list(palindrome)
+        if n%2==1:
+            left=palindrome[:(n-1)//2]
+        else:
+            left=palindrome[:n//2]
+
+        for index,i in enumerate(left):
+            if i !="a":
+                strl[index]="a"
+                return "".join(strl)
+
+        strl[-1]="b"
+        return "".join(strl)
 ```
