@@ -1,1 +1,1 @@
-# Week 1 Topic
+# Week 1 : Dynamic Programming
