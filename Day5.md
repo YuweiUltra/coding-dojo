@@ -1,4 +1,4 @@
-## 4. Median of Two Sorted Arrays
+## 4. Median of Two Sorted Arrays (Hard)
 
 1. Merge Sort  O(n)
 2. [Binary Search](#binary-search) O(logn)\
@@ -7,6 +7,9 @@ Transfer the problem into find the Kth smallest value. If len(n+m) is even, we n
 defintly bigger or smaller (depends on the relation of K and len(n+m)/2) than the Kth smallest value and also update the k value.
 - Write binary serching function and recusively utilize it. The marginal condition is one array is empty, Then
 just return the corresponding element in the other array.
+
+## 1041. Robot Bounded In Circle (Medium)
+
 
 
 ## Binary Search
