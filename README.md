@@ -3,6 +3,8 @@ One LeetCode Test a Day Keeps the Doctor Away
 
 
 
+
+### Daily Practice:
 **[460. LFU Cache (Hard)](Day1.md)** \
 Doubly Linked List | OrderedDict\
 **[37. Sudoku Solver (Hard)](Day1.md)** \
@@ -39,3 +41,4 @@ Binary Search\
 [1328. Break a Palindrome (Medium)](Day5.md)\
 Greedy 
 
+### [Topic1: Dynamic Programming](topic1.md)
