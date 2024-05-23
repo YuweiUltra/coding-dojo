@@ -74,5 +74,26 @@ class Solution:
         return max_points(max_number)
 ```
 
-## 1770. Maximum Score from Performing Multiplication Operations
+## 1770. Maximum Score from Performing Multiplication Operations (Hard)
+```python
+class Solution:
+    def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+        n=len(multipliers)
+        ln=len(nums)
+        dp=[[0]*(n+1) for i in range(n+1)]
 
+        for i in range(n+1):
+            for j in range(i+1):
+                if i==0:
+                    dp[i][j]=0
+                elif j==0:
+                    dp[i][j]=dp[i-1][j]+multipliers[i-1]*nums[ln-i+j]
+                else:
+                    if i==j:
+                        dp[i][j]=dp[i-1][j-1]+multipliers[i-1]*nums[j-1]
+                    else:
+                        dp[i][j]=max(dp[i-1][j-1]+multipliers[i-1]*nums[j-1],
+                        dp[i-1][j]+multipliers[i-1]*nums[ln-i+j]
+                        )
+        return max(dp[-1])
+```
