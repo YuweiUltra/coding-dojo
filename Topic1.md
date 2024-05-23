@@ -73,3 +73,6 @@ class Solution:
         
         return max_points(max_number)
 ```
+
+## 1770. Maximum Score from Performing Multiplication Operations
+
