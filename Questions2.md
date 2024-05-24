@@ -34,9 +34,34 @@ A: Select one point from N points and define a semicircle with its first or left
 ## Pokerhands
 Q: What are the probabilities of getting hands with four-of-a-kind (four of the five cards with the same value? Hands with a full house (three cards of one value and two cards of another value)? Hands with two pairs?
 
-A: Caculate the combination in specific cases and divided by total combination $$
-- four-of-a-kind:
-$${52 \choose 5} = \frac{52!}{5!(52-k)!}$$
+A: Caculate the combination in specific cases and divided by total combination ${52 \choose 5} = \frac{52!}{5!(52-k)!}$
+- four-of-a-kind: ${13 \choose 1}{4 \choose 4}{12 \choose 1}{4 \choose 1}$
+- full house: ${13 \choose 1}{4 \choose 3}{12 \choose 1}{4 \choose 2}$
+- two pairs: ${13 \choose 2}{4 \choose 2}{4 \choose 2}{11 \choose 1}{4 \choose 1}$
 
+## Hopping rabbit
+Q: A rabbit sits at the bottom of a staircase with n stairs. The rabbit can hop up only one or two stairs at a time. How many different ways are there for the rabbit to ascend to the top of the stairs?
 
+A: let f(n) be the number of ways to climb on n stairs. So, $f(n)=f(n-1)+f(n-2)$ and $f(1)=1$ and $f(2)=2$
 
+## Screwy pirates 2
+Q: Having peacefully divided the loot (in chapter 2), the pirate team goes on for more looting and expands the group to 11 pirates. To protect their hard-won treasure, they gather together to put all the loot in a safe. Still being a democratic bunch, they decide that only a majority - any majority - of them (≥6) together can open the safe. So they ask a locksmith to put a certain number of locks on the safe. To access the treasure, every lock needs to be opened. Each lock can have multiple keys; but each key only opens one lock. The locksmith can give more than one key to each pirate.
+What is the smallest number of locks needed? And how many keys must each pirate carry??
+
+A: clocks ${11 \choose 5}$. 6 keys for every clock. $\frac{{11 \choose 5} \times 6}{11}$
+
+## Chess tournament
+Q: A chess tournament has $2^n$ players with skills 1 > 2 >. . . >$2^n$. It is organized as a knockout tournament, so that after each round only the winner proceeds to the next round. Except for the final, opponents in each round are drawn at random. Let's also assume that when two players meet in a game, the player with better skills always wins. What's the probability that players 1and 2 will meet in the final?
+
+Q: $\frac{2^{n-1}}{2^n-1}$
+
+## Application letters
+Q: You're sending job applications ot 5 firms: Morgan Stanley, Lehman Brothers, UBS, Goldman Sachs, and Merrill Lynch. You have 5envelopes on the table neatly typed with names and addresses of people at these 5 firms. You even have 5 cover letters personalized to each of these firms. Your 3-year-old tried to be helpful and stuffed each cover letter into each of the envelopes for you. Unfortunately she randomly put letters into envelopes without realizing that the letters are personalized. 
+What is the probability that al 5cover letters are mailed to the wrong firms?"
+
+A: $\frac{11}{30}$
+
+## 100th digit
+Q: What is the 100th digit to the right of the decimal point in the decimal representation of $(1 +\sqrt{2})^{3000}$#
+
+A: 9
