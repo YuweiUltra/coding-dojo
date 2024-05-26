@@ -24,6 +24,21 @@ class Solution:
         memo = {}
         return dp(len(nums) - 1)
 ```
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        @cache
+        def dp(i, prev):
+            if i < 0:
+                return 0
+            ans = dp(i - 1, False)
+            if not prev:
+                ans = max(ans, dp(i - 1, True) + nums[i])
+                
+            return ans
+        
+        return dp(len(nums) - 1, False)
+```
 
 ## 746. Min Cost Climbing Stairs (Easy)
 backwards transition
@@ -97,3 +112,4 @@ class Solution:
                         )
         return max(dp[-1])
 ```
+
