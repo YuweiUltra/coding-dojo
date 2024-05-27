@@ -41,4 +41,6 @@ Binary Search\
 [1328. Break a Palindrome (Medium)](Day5.md)\
 Greedy 
 
+[2750. Ways to Split Array Into Good Subarrays (Medium)](Day6.md)
+
 ### [Topic1: Dynamic Programming](Topic1.md)
