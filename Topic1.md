@@ -113,3 +113,71 @@ class Solution:
         return max(dp[-1])
 ```
 
+## 1143. Longest Common Subsequence (Medium)
+```python
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        m,n=len(text1),len(text2)
+        dp=[[0 for _ in range(n+1)] for _ in range(m+1)]
+
+        # i,j are the end pos(i,j cannot be used)
+        for i in range(m+1):
+            for j in range(n+1):
+                if i==0 or j==0:
+                    dp[i][j]=0
+                else:
+                    if text1[i-1]==text2[j-1]:
+                        dp[i][j]=dp[i-1][j-1]+1
+                    else:
+                        dp[i][j]=max(dp[i-1][j],dp[i][j-1])
+        return dp[m][n]
+```
+
+## 322. Coin Change (Medium)
+```python
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        bignum=1e10
+        @cache
+        def dp(num):
+            if num==0:
+                return 0
+            elif num in coins:
+                return 1
+            elif num<min(coins):
+                return bignum
+            else:
+                m=bignum
+                for i in coins:
+                    m=min(m,dp(num-i)+1)
+                return m
+        
+        if dp(amount)>=bignum:
+            return -1
+        else:
+            return dp(amount)
+```
+
+## 518. Coin Change II (Medium)
+
+```python
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        def numberOfWays(i: int, amount: int) -> int:
+            if amount == 0:
+                return 1
+            if i == len(coins):
+                return 0
+            if memo[i][amount] != -1:
+                return memo[i][amount]
+
+            if coins[i] > amount:
+                memo[i][amount] = numberOfWays(i + 1, amount)
+            else:
+                memo[i][amount] = numberOfWays(i, amount - coins[i]) + numberOfWays(i + 1, amount)
+            
+            return memo[i][amount]
+
+        memo = [[-1] * (amount + 1) for _ in range(len(coins))]
+        return numberOfWays(0, amount)
+```
