@@ -220,3 +220,34 @@ class Solution:
 
         return dp[m][n]
 ```
+
+## 256. Paint House (Medium)
+```python
+class Solution:
+    def minCost(self, costs: List[List[int]]) -> int:
+        @cache
+        def dp(i,j):
+            if i==0:
+                return costs[0][j]
+            else:
+                c=inf
+                for color in range(3):
+                    if color!=j:
+                        c=min(c,dp(i-1,color))
+                c+=costs[i][j]
+                return c
+
+        return min(dp(len(costs)-1,0),dp(len(costs)-1,1),dp(len(costs)-1,2))
+        
+```
+
+## 265. Paint House II (Hard)
+```python
+class Solution:
+    def minCostII(self, costs: List[List[int]]) -> int:
+        n, k = len(costs), len(costs[0])
+        for i in range(1,n):
+            for j in range(k):
+                costs[i][j] += min(costs[i-1][:j]+costs[i-1][j+1:])
+        return min(costs[-1])
+```
