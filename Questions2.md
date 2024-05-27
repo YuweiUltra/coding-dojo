@@ -62,6 +62,6 @@ What is the probability that al 5cover letters are mailed to the wrong firms?"
 A: $\frac{11}{30}$
 
 ## 100th digit
-Q: What is the 100th digit to the right of the decimal point in the decimal representation of $(1 +\sqrt{2})^{3000}$#
+Q: What is the 100th digit to the right of the decimal point in the decimal representation of $(1 +\sqrt{2})^{3000}$
 
 A: 9
