@@ -76,3 +76,6 @@ A:
 $$P(\text{A or B defaults})=E[I_A]+E[I_B]-E[I_AI_B]=E[I_A]+E[I_B]-(E[I_A]E[I_B]-cov(I_A,I_B))=0.65-\sqrt{0.21}/2\rho_{AB}$$
 $$\tho_{AB}=[-sqrt{3/7},sqrt{3/7}]$$
 
+# Order Statistic
+We can get $f_{Y_n}$ from $F_{X}$ and $f_{X}$
+<img width="674" alt="Screenshot 2024-05-31 at 12 56 53 PM" src="https://github.com/YuweiUltra/coding-dojo/assets/61675471/3e25499f-c00e-4d70-9fea-abe4a57156c2">
