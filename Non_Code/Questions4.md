@@ -79,3 +79,13 @@ $$\tho_{AB}=[-sqrt{3/7},sqrt{3/7}]$$
 # Order Statistic
 We can get $f_{Y_n}$ from $F_{X}$ and $f_{X}$
 <img width="674" alt="Screenshot 2024-05-31 at 12 56 53 PM" src="https://github.com/YuweiUltra/coding-dojo/assets/61675471/3e25499f-c00e-4d70-9fea-abe4a57156c2">
+
+
+## Expected value of max and min
+Let $X_1, X_2,..., X_n be IID random variables with uniform distribution between 0 and 1. What are the cumulative distribution function, the probability density function and expected value of $Z_n = max(X_1, X_2,..., X_n)$? What are the cumulative distribution function, the probability density function and expected value of $Y_n = min(X_1, X_2,..., X_n)$
+
+## Correlation of max and min
+Let $X_1$ and $X_2$ be IID random variables with uniform distribution between 0 and 1, $Y=min(X_1,X_2)$ and $Z=max(X_1, X_2)$. What is the probability of $Y≥ y$ given that $Z \leq z$ for any $y, z \in [0, 1]$? What is the correlation of Y and Z
+
+## Random ants
+500 ants are randomly put on a 1-foot string (independent uniform distribution for each ant between 0 and 1). Each ant randomly moves toward one end of the string (equal probability to the left or right) at constant speed of I foot/minute until it falls off at one end of the string. Also assume that the size of the ant is infinitely small. When two ants collide head-on, they both immediately change directions and keep on moving at 1 foot/min. What is the expected time for al ants to fall off the string?
